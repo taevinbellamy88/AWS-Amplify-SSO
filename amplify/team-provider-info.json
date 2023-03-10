@@ -17,12 +17,6 @@
       },
       "auth": {
         "mcamplifyapp480d493c": {}
-      },
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d33o92eitkduzh",
-          "type": "manual"
-        }
       }
     }
   }

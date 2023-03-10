@@ -10,14 +10,14 @@ import { AuthenticatorService } from '@aws-amplify/ui-angular';
 })
 export class AppComponent implements OnInit {
   stateObject: any;
+  title = 'MC-Amplify-App';
+  currentUserEmail: string | undefined;
+  currentIdp: string | undefined;
 
   constructor(
     private router: Router,
     private authenticator: AuthenticatorService
   ) {}
-
-  currentUserEmail: string | undefined;
-  currentIdp: string | undefined;
 
   ngOnInit() {
     this.getCurrentUser();
@@ -45,7 +45,14 @@ export class AppComponent implements OnInit {
       console.log('error getting user', error);
     }
   }
-  title = 'MC-Amplify-App';
+
+  async loginWithSaml() {
+    try {
+      this.goToMC();
+    } catch (error) {
+      console.log('error signing in', error);
+    }
+  }
 
   goToMC() {
     window.open(
@@ -53,22 +60,4 @@ export class AppComponent implements OnInit {
       '_blank'
     );
   }
-
-  async loginWithSaml() {
-    try {
-      await Auth.federatedSignIn({
-        provider: CognitoHostedUIIdentityProvider.Cognito,
-      });
-      this.router.navigate(['/restaurants']);
-    } catch (error) {
-      console.log('error signing in', error);
-    }
-  }
-}
-export declare enum CognitoHostedUIIdentityProvider {
-  Cognito = 'COGNITO',
-  Google = 'Google',
-  Facebook = 'Facebook',
-  Amazon = 'LoginWithAmazon',
-  Apple = 'SignInWithApple',
 }
