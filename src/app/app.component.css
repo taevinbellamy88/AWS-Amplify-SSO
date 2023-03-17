@@ -27,15 +27,22 @@ p {
   margin: 0;
 }
 
-.spacer {
-  flex: 1;
+.aws-button {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0);
+  border-radius: 4px;
+  border-width: 1px;
+  border-color: rgb(137, 148, 159);
+  width: 87%;
+  height: 2.5rem;
 }
 
-.aws-button {
-  margin-left: 5px;
-  margin-right: 5px;
-  background-color: yellow;
-  border-radius: 15%;
+.saml-container {
+  position: relative;
+  height: 2rem;
 }
 .toolbar {
   position: absolute;
