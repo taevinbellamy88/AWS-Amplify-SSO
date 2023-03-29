@@ -55,9 +55,10 @@ export class AppComponent implements OnInit {
   }
 
   goToMC() {
-    window.open(
-      'https://mcamplifyapp480d493c-480d493c-dev.auth.us-west-2.amazoncognito.com/oauth2/authorize?client_id=5tp6lsbf60evjqvvjetpl6kf06&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Fcallbacks%2Faws%2F',
-      '_blank'
-    );
+    window.location.href = 'http://localhost:50000/api/auth/initiate-saml';
+    // window.open(
+    //   'https://mcamplifyapp480d493c-480d493c-dev.auth.us-west-2.amazoncognito.com/oauth2/authorize?client_id=5tp6lsbf60evjqvvjetpl6kf06&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Fcallbacks%2Faws%2F',
+    //   '_blank'
+    // );
   }
 }
